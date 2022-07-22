@@ -1,0 +1,31 @@
+<!-- <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body" *ngFor="let product of products">
+      <h5 class="card-title">{{product.product_id}}</h5>
+      <p class="card-text">{{product.product_name}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+<div *ngFor="let pro of products" >
+  <div >
+    
+    <div class="card" style="width: 18rem;">
+      <img [src]="pro.imgurl" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" >{{pro.product_name}}</h5>
+        <p class="card-text">{{pro.price}}</p>
+        <p *ngIf="pro.isavailable; then ava else not"></p>
+        <ng-template #ava>
+          stock available 
+        </ng-template>
+        <ng-template #not>
+          out of stock  
+        </ng-template>
+        <button type="submit" class="btn btn-primary"  (click)="data(pro.product_id)" >add to cart</button>
+      </div>
+    </div>
+  </div>
+ </div>
+
+  
